@@ -1,8 +1,7 @@
 import { App } from "../layouts/App";
-import Register from "../components/Register";
 
 export const Home = () => (
   <App>
-    <Register />
+    <h1>Home</h1>
   </App>
 );
