@@ -1,7 +1,9 @@
-import { App } from "../layouts/App";
+import Header from "../components/Header";
+import Dashboard from "../components/Dashboard";
 
 export const Home = () => (
-  <App>
-    <h1>Home</h1>
-  </App>
+  <>
+    <Header />
+    <Dashboard />
+  </>
 );
