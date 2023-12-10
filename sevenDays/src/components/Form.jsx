@@ -15,7 +15,7 @@ export default function Register() {
                     <Controller
                         name="email"
                         control={control}
-                        render={({ field }) => <input {...field} className="border-solid border-2 rounded border-grey-500 focus:outline-none h-9 w-full pl-2     max-sm:h-10" type="email" placeholder="email@exemplo.com" />}
+                        render={({ field }) => <input {...field} className="border-solid border-2 rounded border-grey-500 focus:outline-none h-9 w-full pl-2 max-sm:h-10" type="email" placeholder="email@exemplo.com" />}
                     />
                 </div>
 
