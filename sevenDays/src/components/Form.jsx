@@ -9,7 +9,7 @@ export default function Register() {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col justify-center items-center w-72'>
+            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col justify-center items-center'>
                 <h1 className="text-cyan-500 text-xl mb-2.5 max-sm:text-3xl">Aluritter</h1>
                 <div className="w-full mb-2">
                     <Controller
