@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
     return (
         <>
@@ -12,7 +14,9 @@ export default function Header() {
                         <p className="text-slate-400 mr-3">user@gmail.com</p>
                         <button className="bg-red-500 hover:bg-red-600 w-10 rounded focus:outline-none text-white text-sm">
                             <span>
-                                sair
+                                <Link to="/login">
+                                    Sair
+                                </Link>
                             </span>
                         </button>
                     </div>

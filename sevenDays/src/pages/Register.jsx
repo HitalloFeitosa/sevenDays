@@ -37,7 +37,7 @@ export const Register = () => {
                 </div>
 
                 <button type="submit" className="bg-green-500 h-9 w-full rounded text-white hover:bg-green-600 focus:outline-none">Criar uma nova conta</button>
-                <FormLinks customerStatus="Já tem uma conta?" actionLink="Acesse agora!" />
+                <FormLinks customerStatus="Já tem uma conta?" actionLink="Acesse agora!" to="/login" />
             </form>
         </>
     )

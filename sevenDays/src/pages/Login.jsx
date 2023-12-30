@@ -1,16 +1,18 @@
 import { useForm, Controller } from 'react-hook-form';
 import FormLinks from '../components/FormLinks';
-import { auth, createUserWithEmailAndPassword } from '../../firebase';
+import { auth, signInWithEmailAndPassword } from '../../firebase';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
+    const navigate = useNavigate();
     const { handleSubmit, control } = useForm();
 
     const onSubmit = async (data) => {
         try {
-            await createUserWithEmailAndPassword(auth, data.email, data.password);
-            console.log("Conta criada com sucesso!");
+            await signInWithEmailAndPassword(auth, data.email, data.password);
+            navigate('/');
         } catch (error) {
-            console.error("Erro ao criar conta:", error.message);
+            alert("Email ou senha incorreta");
         }
     };
 
@@ -37,7 +39,7 @@ export const Login = () => {
                 </div>
 
                 <button type="submit" className="bg-green-500 h-9 w-full rounded text-white hover:bg-green-600 focus:outline-none">Acessar plataforma</button>
-                <FormLinks customerStatus="Não possui uma conta?" actionLink="Crie uma agora!" />
+                <FormLinks customerStatus="Não possui uma conta?" actionLink="Crie uma agora!" to="/register" />
             </form>
         </>
     );
