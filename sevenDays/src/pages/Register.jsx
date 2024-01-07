@@ -1,14 +1,16 @@
 import { useForm, Controller } from 'react-hook-form';
 import FormLinks from '../components/FormLinks';
 import { auth, createUserWithEmailAndPassword } from '../../firebase';
+import { useNavigate } from 'react-router-dom';
 
 export const Register = () => {
+    const navigate = useNavigate();
     const { handleSubmit, control } = useForm();
 
     const onSubmit = async (data) => {
         try {
             await createUserWithEmailAndPassword(auth, data.email, data.password);
-            console.log("Conta criada com sucesso!");
+            navigate('/');
         } catch (error) {
             console.error("Erro ao criar conta:", error.message);
         }

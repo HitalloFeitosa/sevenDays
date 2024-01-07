@@ -1,6 +1,22 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../../firebase";
 
 export default function Header() {
+    const [userEmail, setUserEmail] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user) {
+                setUserEmail(user.email);
+            } else {
+                setUserEmail(null);
+            }
+        });
+
+        return () => unsubscribe();
+    }, []);
+
     return (
         <>
             <header className="bg-white w-full">
@@ -11,7 +27,7 @@ export default function Header() {
                         </a>
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <p className="text-slate-400 mr-3">user@gmail.com</p>
+                        <p className="text-slate-400 mr-3">{ userEmail }</p>
                         <button className="bg-red-500 hover:bg-red-600 w-10 rounded focus:outline-none text-white text-sm">
                             <span>
                                 <Link to="/login">
